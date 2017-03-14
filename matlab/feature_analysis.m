@@ -1,5 +1,3 @@
-
-
 dir = 'C:\Users\nsleheen\DATA\feature_analysis\';
 train= importdata([dir 'featureFileNew.csv']);
 train_1 = train(find(train(:, end)==1), :);
