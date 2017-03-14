@@ -1,15 +1,16 @@
 clear all;
-G.DIR = 'C:\Users\nsleheen\DATA\RICE_TESTING\';
-G.OUTDIR = 'C:\Users\nsleheen\DATA\RICE_TESTING\plotselfreport';
-G.pids = '2006';
-G.sessions = {'s2017-02-27', 's2017-02-28'};
+% G.DIR = 'C:\Users\nsleheen\DATA\RICE_TESTING\';
+% G.OUTDIR = 'C:\Users\nsleheen\DATA\RICE_TESTING\plotselfreport';
+% G.pids = '2006';
+% G.sessions = {'s2017-02-27', 's2017-02-28'};
+G = config();
 
 INDIR = G.DIR;
 OUTDIR = G.OUTDIR;
 pid = G.pids;
 sessions = G.sessions;
 
-for i=s:length(sessions)
+for s=1:length(sessions)
     sid = sessions{s};
     dir = [INDIR pid '\' sid '\'];
 
@@ -54,8 +55,8 @@ for i=s:length(sessions)
             end
 
             plot(rip(:,1),-2+rip(:, 2)/2000, 'g');
-            plot(valleys(:,1),-2+valleys(:, 2)/2000, 'or');
-            plot(peaks(:,1),-2+peaks(:, 2)/2000, '*b');
+            plot(valleys(:,1),-2+valleys(:, 2)/2000, '.r');
+            plot(peaks(:,1),-2+peaks(:, 2)/2000, '.b');
 
             plot(a_y_l(:,1),3+a_y_l(:, 2), 'b'); hold on;
             plot(a_y_r(:,1),3+a_y_r(:, 2), 'r');
@@ -65,10 +66,10 @@ for i=s:length(sessions)
             plot([selfReport(j,1) selfReport(j,1)], [0 8], 'k');
             text(selfReport(j,1), 8, 'Self-report');
             
-            xlim([selfReport(i,1)-15*60000, selfReport(i,1)+10*60000])
+            xlim([selfReport(j,1)-15*60000, selfReport(j,1)+10*60000])
 
 %             saveas(gcf,[OUTDIR '\' pid '_' sid 'selfreport_' j '.fig']);
-            saveas(gcf,[OUTDIR '\' pid '_' sid 'selfreport_' j '.png']);
+            saveas(gcf,[OUTDIR '\' pid '_' sid 'selfreport_' num2str(j) '.png']);
             close(gcf);
             
         end

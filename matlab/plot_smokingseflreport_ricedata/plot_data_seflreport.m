@@ -1,8 +1,9 @@
 clear all;
-G.DIR = 'C:\Users\nsleheen\DATA\RICE_TESTING\';
-G.OUTDIR = 'C:\Users\nsleheen\DATA\RICE_TESTING\plotselfreport';
-G.pids = '2006';
-G.sessions = {'s2017-02-27', 's2017-02-28'};
+% G.DIR = 'C:\Users\nsleheen\DATA\RICE_TESTING\';
+% G.OUTDIR = 'C:\Users\nsleheen\DATA\RICE_TESTING\plotselfreport';
+% G.pids = '2006';
+% G.sessions = {'s2017-02-27', 's2017-02-28'};
+G = config();
 
 INDIR = G.DIR;
 OUTDIR = G.OUTDIR;
