@@ -11,3 +11,5 @@ javaaddpath ('functions/java'); % all java files are in this folder
 
 %% Configure all paths
 addpath(genpath('.')); % include all directory in matlab path.
+
+G.STUDY = 'minnesotaSmoking';
