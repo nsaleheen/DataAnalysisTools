@@ -1,4 +1,4 @@
-function G=config()
+function G=config_rice()
 %% Configure java Paths
 allpath=javaclasspath('-dynamic');
 c=size(allpath,2);
@@ -16,9 +16,10 @@ addpath(genpath('.')); % include all directory in matlab path.
 % G.DIR.SEP=filesep;
 G.DIR = 'C:\Users\nsleheen\DATA\RICE_TESTING\';
 G.OUTDIR = 'C:\Users\nsleheen\DATA\RICE_TESTING\plotselfreport';
-G.pids = '2006';
+G.pids = '2007';
 % G.sessions = {'s2017-02-27', 's2017-02-28', 's2017-03-01', 's2017-03-02', 's2017-03-04', 's2017-03-05', 's2017-03-06'};
-G.sessions = {'s2017-03-05', 's2017-03-06', 's2017-03-07'};
+% G.sessions = {'s2017-03-05', 's2017-03-06', 's2017-03-07'};
+G.sessions = {'s01'};
 
 
 % DATA_NAME

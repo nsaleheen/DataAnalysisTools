@@ -24,9 +24,9 @@ for s=1:length(sessions)
     puff = pLabel(find(pLabel(:, 2)==1), 1);
     epi=importdata([dir 'org.md2k.puffMarker.smoking.episode.csv']);
 
-    pLabelNew=importdata([dir 'new\org.md2k.puffMarker.pufflabel.minute.csv']);
-    puffNew = pLabelNew(find(pLabelNew(:, 2)==1), 1);
-    epiNew=importdata([dir 'new\org.md2k.puffMarker.smoking.episode.csv']);
+%     pLabelNew=importdata([dir 'new\org.md2k.puffMarker.pufflabel.minute.csv']);
+%     puffNew = pLabelNew(find(pLabelNew(:, 2)==1), 1);
+%     epiNew=importdata([dir 'new\org.md2k.puffMarker.smoking.episode.csv']);
 
     figure;
     selfReport=importdata([dir 'SMOKING_SELFREPORT_CLOUD.csv']);
@@ -43,16 +43,16 @@ for s=1:length(sessions)
                 plot(pLabel(:, 1), 6, 'og');
                 plot(puff, 6, '*r');    
             end
-            if length(epiNew)>0
-                for i=1:length(epiNew(:, 1)) 
-                   rectangle('Position',[epiNew(i,1),6.5,300000,1],'FaceColor',[.9 .5 0]);
-                   hold on;
-                end
-            end
-            if length(pLabelNew)>0
-                plot(pLabelNew(:, 1), 7, 'og');
-                plot(puffNew, 7, '*r');    
-            end
+%             if length(epiNew)>0
+%                 for i=1:length(epiNew(:, 1)) 
+%                    rectangle('Position',[epiNew(i,1),6.5,300000,1],'FaceColor',[.9 .5 0]);
+%                    hold on;
+%                 end
+%             end
+%             if length(pLabelNew)>0
+%                 plot(pLabelNew(:, 1), 7, 'og');
+%                 plot(puffNew, 7, '*r');    
+%             end
 
             plot(rip(:,1),-2+rip(:, 2)/2000, 'g');
             plot(valleys(:,1),-2+valleys(:, 2)/2000, '.r');
