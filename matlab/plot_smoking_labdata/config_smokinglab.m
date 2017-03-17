@@ -1,4 +1,4 @@
-function G=config_minnesota(G)
+function G=config_smokinglab(G)
 G.DIR = 'C:\Users\nsleheen\DATA\csvdataSI_new\';
 G.OUTDIR = 'C:\Users\nsleheen\DATA\csvdataSI_new\plotSmokingLab';
 

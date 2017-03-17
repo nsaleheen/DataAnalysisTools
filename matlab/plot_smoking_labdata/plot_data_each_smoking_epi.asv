@@ -38,12 +38,11 @@ function G=plot_data_each_smoking_epi(G)
                         plot(pLabel(:, 1), 8, 'og'); hold on;
                         plot(puff, 8, '*r');    
                     end
-                    xminLim = epiStart(i)-1/(24*60);
+                    xminLim = selfReport(j,1)-15*60000;
 
                     plot(rip(:,1),-1+rip(:, 2)/1000, 'g'); hold on;
-                    plot(valleys(:,1),-1+valleys(:, 2)/1000, '.r');
-                    plot(peaks(:,1),-1+peaks(:, 2)/1000, '.b');
-                    text(xminLim, 0, 'Respiration');
+                    plot(valleys(:,1),-1+valleys(:, 2)/1000, 'or');
+                    plot(peaks(:,1),-1+peaks(:, 2)/1000, '*b');
 
                     plot(a_y_l(:,1),3+a_y_l(:, 2), 'b'); hold on;
                     plot([a_y_l(1,1) a_y_l(end,1)],[3 3],'k--');
@@ -68,7 +67,7 @@ function G=plot_data_each_smoking_epi(G)
                     set(findall(gcf,'type','text'),'FontSize',16,'fontWeight','bold');
                     set(gca,'FontSize',16,'fontWeight','bold');
                     
-                    saveas(gcf,[OUTDIR '\' pid '_' sid '_Epi_' num2str(i) '.fig']);
+                    saveas(gcf,[OUTDIR '\' pid '_' sid '_Epi_' num2str(i) '.png']);
 
                     saveas(gcf,[OUTDIR '\' pid '_' sid '_Epi_' num2str(i) '.png']);
                     close(gcf);

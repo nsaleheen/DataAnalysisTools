@@ -1,4 +1,4 @@
-function G=plot_data_each_smoking(G)
+function G=plot_data_each_detected_smoking_epi(G)
     G = config_minnesota(G);
 
     INDIR = G.DIR;
@@ -31,8 +31,8 @@ function G=plot_data_each_smoking(G)
             if length(epi)>0
                 for i=1:length(epi(:, 1))
                     if length(pLabel)>0
-                        plot(pLabel(:, 1), 6, 'og'); hold on;
-                        plot(puff, 6, '*r');    
+                        plot(pLabel(:, 1), 8, 'og'); hold on;
+                        plot(puff, 8, '*r');    
                     end
 
                     plot(rip(:,1),-2+rip(:, 2)/1000, 'g'); hold on;
@@ -40,8 +40,10 @@ function G=plot_data_each_smoking(G)
                     plot(peaks(:,1),-2+peaks(:, 2)/1000, '*b');
 
                     plot(a_y_l(:,1),3+a_y_l(:, 2), 'b'); hold on;
-                    plot(a_y_r(:,1),3+a_y_r(:, 2), 'r');
-                    plot([a_y_r(1,1) a_y_r(end,1)],[3 3],'k--');
+                    plot([a_y_l(1,1) a_y_l(end,1)],[3 3],'k--');
+
+                    plot(a_y_r(:,1),5+a_y_r(:, 2), 'r');
+                    plot([a_y_r(1,1) a_y_r(end,1)],[5 5],'k--');
     
                     dynamicDateTicks;
                     xlim([epi(i,1)-2/(24*60), epi(i,1)+10/(24*60)]);
@@ -50,7 +52,7 @@ function G=plot_data_each_smoking(G)
                     set(findall(gcf,'type','text'),'FontSize',16,'fontWeight','bold');
                     set(gca,'FontSize',16,'fontWeight','bold');
 
-                    saveas(gcf,[OUTDIR '\' pid '_' sid 'smoking_' num2str(i) '.png']);
+                    saveas(gcf,[OUTDIR '\' pid '_' sid '_smoking_' num2str(i) '.png']);
                     close(gcf);
                 end
             end

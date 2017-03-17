@@ -75,8 +75,8 @@ function G=plot_data_eachLabDay(G)
             set(gca,'FontSize',16,'fontWeight','bold');
             dynamicDateTicks;
 
-%             saveas(gcf,[OUTDIR '\' pid '_' sid '.fig']);
-%             saveas(gcf,[OUTDIR '\' pid '_' sid '.png']);
+            saveas(gcf,[OUTDIR '\' pid '_' sid '.fig']);
+            saveas(gcf,[OUTDIR '\' pid '_' sid '.png']);
              close(gcf);
         end
     end
