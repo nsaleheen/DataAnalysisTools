@@ -82,8 +82,8 @@ for s=1:length(sessions)
     set(findall(gcf,'type','text'),'FontSize',16,'fontWeight','bold');
     set(gca,'FontSize',16,'fontWeight','bold');
     
-    saveas(gcf,[OUTDIR '\' pid '_' sid '.fig']);
-    saveas(gcf,[OUTDIR '\' pid '_' sid '.png']);
+%     saveas(gcf,[OUTDIR '\' pid '_' sid '.fig']);
+%     saveas(gcf,[OUTDIR '\' pid '_' sid '.png']);
     close(gcf);
 end
 

@@ -1,4 +1,4 @@
-function G=plot_data_each_smoking_epi(G)
+function G=plot_candidate_In_each_smoking_epi(G)
     G = config_smokinglab(G);
 
     INDIR = G.DIR;
@@ -24,8 +24,7 @@ function G=plot_data_each_smoking_epi(G)
             end;
             peaks= importdataMatTime([dir 'org.md2k.puffmarker.data.rip.peaks.filtered.csv']);
 
-            pLabel=importdataMatTime([dir 'org.md2k.puffMarker.pufflabel.minute.csv']);
-            puff = pLabel(find(pLabel(:, 2)==1), 1);
+            pLabel=importdataMatTime([dir 'org.md2k.puffMarker.fv.minute.csv']);
             
             truePuffLabel=importdataMatTime([dir 'puffGroundtruth.csv']);
             epi=importdataMatTime([dir 'episode_start_end.csv']);
@@ -36,13 +35,14 @@ function G=plot_data_each_smoking_epi(G)
                 for i=1:length(epi(:, 1))
                     if length(pLabel)>0
                         plot(pLabel(:, 1), 8, 'og'); hold on;
-                        plot(puff, 8, '*r');    
+                       
                     end
-                    xminLim = selfReport(j,1)-15*60000;
+                    xminLim = epiStart(i)-1/(24*60);
 
                     plot(rip(:,1),-1+rip(:, 2)/1000, 'g'); hold on;
-                    plot(valleys(:,1),-1+valleys(:, 2)/1000, 'or');
-                    plot(peaks(:,1),-1+peaks(:, 2)/1000, '*b');
+                    plot(valleys(:,1),-1+valleys(:, 2)/1000, '.r');
+                    plot(peaks(:,1),-1+peaks(:, 2)/1000, '.b');
+                    text(xminLim, 0, 'Respiration');
 
                     plot(a_y_l(:,1),3+a_y_l(:, 2), 'b'); hold on;
                     plot([a_y_l(1,1) a_y_l(end,1)],[3 3],'k--');
@@ -67,7 +67,7 @@ function G=plot_data_each_smoking_epi(G)
                     set(findall(gcf,'type','text'),'FontSize',16,'fontWeight','bold');
                     set(gca,'FontSize',16,'fontWeight','bold');
                     
-                    saveas(gcf,[OUTDIR '\' pid '_' sid '_Epi_' num2str(i) '.png']);
+                    saveas(gcf,[OUTDIR '\' pid '_' sid '_Epi_' num2str(i) '.fig']);
 
                     saveas(gcf,[OUTDIR '\' pid '_' sid '_Epi_' num2str(i) '.png']);
                     close(gcf);

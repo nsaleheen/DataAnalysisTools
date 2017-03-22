@@ -10,7 +10,7 @@ G.OUTDIR = 'C:\Users\nsleheen\DATA\csvdataSI_new\plotSmokingLab';
 %     , 'p6013', 'p6014', 'p6015', 'p6016', 'p6017', 'p6020', 'p6021'};
 
 G.pids = {'p01', 'p02', 'p03', 'p04', 'p05', 'p06'};
-% G.pids = {'p04', 'p05', 'p06'};
+
 
 G.sessions = {'s01', 's02', 's03', 's04', 's05', 's06', 's07', 's08'};
 
