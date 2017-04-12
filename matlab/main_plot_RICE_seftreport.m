@@ -1,7 +1,7 @@
 clear all;
 G = config();
 
-G = config_nu(G);
+G = config_rice(G);
 
 INDIR = G.DIR;
 OUTDIR = G.OUTDIR;
@@ -25,7 +25,10 @@ pid = pids{p};
         peaks= importdataMatTime([dir 'org.md2k.puffmarker.data.rip.peaks.filtered.csv']);
 
         a_y_l = importdataMatTime([dir 'left-wrist-accely.csv']);
+        a_y_l_smooth = importdataMatTime([dir 'org.md2k.puffmarker.data.accl.y.mag_800.leftwrist.csv']);
+        
         a_y_r = importdataMatTime([dir 'right-wrist-accely.csv']);
+        a_y_r_smooth = importdataMatTime([dir 'org.md2k.puffmarker.data.accl.y.mag_800.rightwrist.csv']);
 
         puffEpi=importdataMatTime([dir 'org.md2k.puffMarker.pufflabel.csv']);
         pLabel=importdataMatTime([dir 'org.md2k.puffMarker.pufflabel.minute.csv']);
@@ -57,8 +60,11 @@ pid = pids{p};
         plot_timeseries(valleys(:, 1), valleys(:, 2)/1000, -2, '.g');
         
         plot_timeseries(a_y_l(:, 1), a_y_l(:, 2), 3, '.b');
+        plot_timeseries(a_y_l_smooth(:, 1), a_y_l_smooth(:, 2), 3, '.g');        
         plot([a_y_l(1, 1) a_y_l(end, 1)], [3 3], '--');
+        
         plot_timeseries(a_y_r(:, 1), a_y_r(:, 2), 7, '.r');
+        plot_timeseries(a_y_r_smooth(:, 1), a_y_r_smooth(:, 2), 7, '.g');
         plot([a_y_l(1, 1) a_y_l(end, 1)], [7 7], '--');
         
         if (~isempty(epiPM)) plot_horizontalbox(epiPM(:, 1), epiPM(:, 1)+5/(24*60), 8.5, 9.5, [0.9 0.5 0]); end;
